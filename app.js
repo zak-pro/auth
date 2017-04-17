@@ -1,4 +1,3 @@
-
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -14,6 +13,7 @@ var mongoose = require('libs/mongoose');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var clients = require('./routes/clients');
 
 // Init App
 var app = express();
@@ -73,9 +73,9 @@ app.use(function (req, res, next) {
 });
 
 
-
 app.use('/', routes);
 app.use('/users', users);
+app.use('/', clients);
 
 // Set Port
 app.set('port', (process.env.PORT || 3000));
